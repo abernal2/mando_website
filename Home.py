@@ -10,7 +10,9 @@ path = os.path.dirname(os.path.realpath(__file__))
 image_path = os.path.join(path, 'files/me.png')
 image = Image.open(image_path)
 
-st.image(image, width=300)
+
+st.markdown('## Machine Learning and Mathematical Optimization Specialist!')
+st.image(image, width=300, caption='Armando Bernal')
 
 st.markdown(
     """
