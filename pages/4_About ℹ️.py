@@ -1,6 +1,15 @@
+import os
+from PIL import Image
 import streamlit as st
 
-st.write("# About Me")
+path = os.path.dirname(os.path.realpath(__file__))
+image_path = os.path.join(path, '..', 'files/me.png')
+image = Image.open(image_path)
+
+st.write("# Armando Bernal")
+st.image(image, width=300)
+
+st.write("## About Me")
 
 st.write(
     """
