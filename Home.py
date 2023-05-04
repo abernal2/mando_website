@@ -7,16 +7,27 @@ st.set_page_config(
 )
 
 path = os.path.dirname(os.path.realpath(__file__))
+
+with st.sidebar.container():
+    filepath = os.path.join(path, 'files/Resume.pdf')
+    with open(filepath, "rb") as pdf_file:
+        PDFbyte = pdf_file.read()
+
+    st.download_button(label="Download CV",
+                        data=PDFbyte,
+                        file_name="ArmandoBernal_Resume.pdf",
+                        mime='application/octet-stream')
+
 image_path = os.path.join(path, 'files/graph.png')
 image = Image.open(image_path)
 
 
-st.markdown('## Machine Learning and Mathematical Optimization Specialist!')
+st.markdown('# Machine Learning and Mathematical Optimization Specialist!')
 st.image(image, width=300)
 
 st.markdown(
     """
-    Hiring Data Scientist/Optimization Engineers staff can be expensive for 
+    Hiring a Data Scientist/Optimization Engineers staff can be expensive for 
     small and medium sized companies. On top of that, powerful commercial 
     software to build and deploy said ML/optimization models adds to these costs. If you 
     want to leverage data science and optimization models but the costs are 
@@ -32,13 +43,3 @@ st.markdown(
     to bring these models to production.
 """
 )
-
-filepath = os.path.join(path, 'files/Resume.pdf')
-
-with open(filepath, "rb") as pdf_file:
-    PDFbyte = pdf_file.read()
-
-st.download_button(label="Download CV",
-                    data=PDFbyte,
-                    file_name="ArmandoBernal_Resume.pdf",
-                    mime='application/octet-stream')
